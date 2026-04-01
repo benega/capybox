@@ -8,7 +8,7 @@
 
 [Explain how this feature fits within `docs/project_overview.md`:
 
-- Which part of the Liminal product vision or platform model it advances
+- Which part of the Capybox product vision or platform model it advances
 - Which personas or core experience flows it supports
 - Whether it reinforces or intentionally changes any project-level assumptions]
 

@@ -1,6 +1,6 @@
 ---
 name: run-task
-description: Implements feature tasks by loading required skills, reading PRD/TechSpec context, analyzing dependencies, and executing the implementation with tests. Marks tasks as complete in tasks.md and triggers the task-reviewer agent upon completion. Use when the user asks to implement a task, execute a task, or start working on a specific task number. Do not use for creating tasks, running QA, code review, or bug fixing.
+description: Implements feature tasks by loading required skills, reading PRD/TechSpec context, analyzing dependencies, and executing the implementation with tests. Marks tasks as complete in tasks.md and performs a follow-up review pass before finalizing. Use when the user asks to implement a task, execute a task, or start working on a specific task number. Do not use for creating tasks, running QA, code review, or bug fixing.
 ---
 
 # Task Execution
@@ -10,9 +10,9 @@ description: Implements feature tasks by loading required skills, reading PRD/Te
 **Step 1: Pre-Task Configuration (Mandatory)**
 1. Read `docs/project_overview.md` to understand the product model and scope boundaries.
 2. Read `docs/architecture.md` to understand the architectural constraints and technical direction.
-3. Read the task definition file at `specs/tasks/prd-[feature-slug]/[num]_task.md`.
-4. Read the PRD at `specs/tasks/prd-[feature-slug]/prd.md` for context.
-5. Read the Tech Spec at `specs/tasks/prd-[feature-slug]/techspec.md` for technical requirements.
+3. Read the task definition file at `.specs/tasks/prd-[feature-slug]/[num]_task.md`.
+4. Read the PRD at `.specs/tasks/prd-[feature-slug]/prd.md` for context.
+5. Read the Tech Spec at `.specs/tasks/prd-[feature-slug]/techspec.md` for technical requirements.
 6. Identify dependencies from previous tasks and verify they are complete.
 7. Do NOT skip any of these reads.
 
@@ -41,20 +41,22 @@ description: Implements feature tasks by loading required skills, reading PRD/Te
 
 **Step 5: Implementation (Mandatory)**
 1. Begin implementation immediately after planning.
-2. Follow all project standards established in CLAUDE.md and project rules.
+2. Follow all project standards established in `AGENTS.md`, project docs, and repository rules.
 3. Implement solutions without workarounds.
-4. Create and run all task tests before considering the task finished.
+4. If the task or Tech Spec assigns committed E2E ownership, create or update the Playwright test files as part of implementation rather than leaving them for QA.
+5. Use the `playwright-cli` skill to help explore flows, author selectors, debug browser-based tests, and capture validation evidence, but do not treat ad hoc `playwright-cli` sessions as a substitute for committed regression coverage when the spec requires test files.
+6. Create and run all task tests before considering the task finished.
 
 **Step 6: Mark Task Complete (Mandatory)**
 1. After successful implementation and tests, mark the task as complete in `tasks.md`.
 
 **Step 7: Review (Mandatory)**
-1. Execute the `task-reviewer` agent to review the implementation.
-2. Address any issues identified by the reviewer.
+1. Perform a follow-up review using the `run-review` skill guidance or an equivalent local review pass.
+2. Address any critical issues identified during the review.
 3. Do not finalize the task until review issues are resolved.
 
 ## Error Handling
 - If the task file does not exist, halt and report to the user.
 - If dependencies are not complete, warn the user and ask whether to proceed.
 - If tests fail, fix the issues before marking the task as complete.
-- If the task-reviewer identifies critical issues, address them before finalizing.
+- If the follow-up review identifies critical issues, address them before finalizing.

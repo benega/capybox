@@ -6,9 +6,9 @@
 - Regression Tests Created: [Z]
 
 ## Details per Bug
-| ID | Severity | Status | Fix | Tests Created |
-|----|----------|--------|-----|---------------|
-| BUG-01 | High | Fixed | [description] | [list] |
+| ID | Surface | Severity | Validation Mode | Regression Source | Status | Fix | Tests Created |
+|----|---------|----------|-----------------|-------------------|--------|-----|---------------|
+| BUG-01 | tv/mobile/web | High | playwright-cli browser / manual limitation | committed spec / exploratory validation | Fixed | [description] | [list] |
 
 ## Tests
 - Unit tests: ALL PASSING

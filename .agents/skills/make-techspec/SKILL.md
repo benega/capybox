@@ -9,7 +9,7 @@ description: Creates Technical Specifications from existing PRDs, translating pr
 
 **Step 1: Validate Prerequisites**
 1. Confirm the feature slug has been provided.
-2. Verify the PRD exists at `specs/tasks/prd-[feature-slug]/prd.md`. If missing, halt and report.
+2. Verify the PRD exists at `.specs/tasks/prd-[feature-slug]/prd.md`. If missing, halt and report.
 3. Verify the project context documents exist:
    - `docs/project_overview.md`
    - `docs/architecture.md`
@@ -17,7 +17,7 @@ description: Creates Technical Specifications from existing PRDs, translating pr
 **Step 2: Load Project Context (Mandatory)**
 1. Read `docs/project_overview.md` completely.
 2. Read `docs/architecture.md` completely.
-3. Extract the product model, platform boundaries, storage model, AI constraints, and architectural guardrails that apply to the feature.
+3. Extract the product model, platform boundaries, realtime/session model, and architectural guardrails that apply to the feature.
 
 **Step 3: Analyze PRD (Mandatory)**
 1. Read the PRD completely — do NOT skip this step.
@@ -43,7 +43,7 @@ description: Creates Technical Specifications from existing PRDs, translating pr
    - Feature-specific data flow.
    - External dependencies not already defined in architecture.
    - Key interfaces that remain undecided.
-   - Test scenarios or rollout constraints.
+   - Test scenarios, E2E ownership, or rollout constraints.
    - Whether the feature intentionally changes the current project overview or architecture.
 4. Do NOT proceed until answers are received.
 
@@ -62,9 +62,16 @@ description: Creates Technical Specifications from existing PRDs, translating pr
 8. Prefer existing libraries over custom development.
 9. Make the relationship to `docs/architecture.md` explicit: align with it when possible, and clearly note any intentional extensions or conflicts.
 10. Use `docs/project_overview.md` to keep the solution aligned with the broader product model and future platform direction.
+11. In the testing strategy, explicitly classify critical flows into:
+   - committed automated tests that must be created during implementation
+   - exploratory or visual validation that can use `playwright-cli`
+   - justified temporary gaps or manual limitations
+12. For E2E coverage, specify the target surface and automation mode for each required flow:
+   - `playwright-cli browser` for `tv`, `mobile`, and `web` browser flows
+13. Do not leave E2E ownership implicit. If committed E2E coverage is deferred, state the reason, current fallback coverage, and the trigger that will make E2E mandatory later.
 
 **Step 9: Save Tech Spec (Mandatory)**
-1. Save to: `specs/tasks/prd-[feature-slug]/techspec.md`.
+1. Save to: `.specs/tasks/prd-[feature-slug]/techspec.md`.
 2. Confirm the write operation and path.
 
 ## Core Principles
@@ -81,7 +88,7 @@ description: Creates Technical Specifications from existing PRDs, translating pr
 - [ ] Key technical clarifications answered.
 - [ ] Tech Spec generated using the template.
 - [ ] Project skills verified for compliance.
-- [ ] File written to `specs/tasks/prd-[feature-slug]/techspec.md`.
+- [ ] File written to `.specs/tasks/prd-[feature-slug]/techspec.md`.
 - [ ] Final output path provided and confirmed.
 
 ## Error Handling

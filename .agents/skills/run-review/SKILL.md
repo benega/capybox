@@ -10,8 +10,8 @@ description: Performs comprehensive code review by analyzing git diff, verifying
 **Step 1: Documentation Analysis (Mandatory)**
 1. Read `docs/project_overview.md` to understand the product model and scope boundaries.
 2. Read `docs/architecture.md` to understand the architectural constraints and technical direction.
-3. Read the Tech Spec at `specs/tasks/prd-[feature-slug]/techspec.md` to understand expected architectural decisions.
-4. Read the Tasks at `specs/tasks/prd-[feature-slug]/.specs/tasks.md` to verify the scope implemented.
+3. Read the Tech Spec at `.specs/tasks/prd-[feature-slug]/techspec.md` to understand expected architectural decisions.
+4. Read the Tasks at `.specs/tasks/prd-[feature-slug]/tasks.md` to verify the scope implemented.
 5. Read the project rules to know the required standards.
 6. Do NOT skip this step — understanding context is fundamental for the review.
 

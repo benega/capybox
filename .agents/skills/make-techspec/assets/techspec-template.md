@@ -80,9 +80,13 @@ interface ServiceName {
 
 ### E2E Tests
 
-[If needed, describe E2E tests:
+[Describe the E2E ownership explicitly, even if the answer is "deferred with justification":
 
-- Test frontend together with backend **using Playwright**]
+- List the critical user flows that require committed Playwright test files
+- For each flow, specify the surface and automation mode:
+  - `playwright-cli browser` for `tv`, `mobile`, or `web` validation
+- State how `playwright-cli` will be used during implementation or QA for exploratory, accessibility, or visual checks
+- If committed E2E coverage is deferred, explain why, what currently covers the gap, and when E2E becomes mandatory]
 
 ## Development Sequencing
 
@@ -116,9 +120,9 @@ interface ServiceName {
 
 [Describe how the design aligns with the baseline architecture in `docs/architecture.md`:
 
-- Local-first and user-owned data implications
+- Realtime session, host/controller, and game-state implications
 - Monorepo/package or app-surface implications
-- AI/provider/backend constraints
+- Backend, auth, and channel constraints
 - Any conflicts, open questions, or required amendments to the baseline architecture]
 
 ### Known Risks

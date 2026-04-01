@@ -31,7 +31,7 @@ description: Creates the global Project Overview document (docs/project_overview
    - **Platform Model**: Is the product a standalone app, a platform, or an ecosystem? What are the layers?
    - **Data Ownership**: Who owns the data? What formats? Is portability a requirement?
    - **Business Model**: How will this make money? What is free vs paid?
-   - **Privacy**: What is the privacy stance? Local-first? BYOK? Encryption?
+   - **Privacy**: What is the privacy stance for user identity, product data, analytics, and third-party processing?
    - **Differentiators**: What makes this different from existing alternatives?
    - **Stack**: What is the intended tech stack at a high level? (Details belong in architecture.md.)
 3. Do NOT proceed to Step 4 until clarification answers are received.

@@ -38,7 +38,7 @@
 
 - [ ] Unit tests
 - [ ] Integration tests
-- [ ] E2E tests (if applicable)
+- [ ] E2E tests (required / deferred / not applicable, with owner and rationale)
 
 <critical>ALWAYS CREATE AND RUN THE TASK TESTS BEFORE CONSIDERING THE TASK COMPLETE</critical>
 

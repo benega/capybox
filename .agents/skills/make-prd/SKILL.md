@@ -9,7 +9,7 @@ description: Creates Product Requirements Documents (PRDs) from feature requests
 
 **Step 1: Validate Prerequisites**
 1. Confirm the feature name or description has been provided by the user.
-2. Derive the slug in kebab-case for the output directory: `specs/tasks/prd-[feature-slug]/`.
+2. Derive the slug in kebab-case for the output directory: `.specs/tasks/prd-[feature-slug]/`.
 3. Verify the project context documents exist:
    - `docs/project_overview.md`
    - `docs/architecture.md`
@@ -45,12 +45,12 @@ description: Creates Product Requirements Documents (PRDs) from feature requests
 3. Include numbered functional requirements.
 4. Keep the document under 2,000 words.
 5. Do NOT deviate from the template structure.
-6. Frame the feature as part of the existing Liminal product direction rather than redefining the project from scratch.
+6. Frame the feature as part of the existing Capybox product direction rather than redefining the project from scratch.
 7. In high-level constraints, reflect relevant decisions from `docs/architecture.md` without turning the PRD into a tech spec.
 
 **Step 6: Save the PRD (Mandatory)**
-1. Create the directory: `specs/tasks/prd-[feature-slug]/`.
-2. Save the PRD to: `specs/tasks/prd-[feature-slug]/prd.md`.
+1. Create the directory: `.specs/tasks/prd-[feature-slug]/`.
+2. Save the PRD to: `.specs/tasks/prd-[feature-slug]/prd.md`.
 
 **Step 7: Report Results**
 1. Provide the final file path.
@@ -70,7 +70,7 @@ description: Creates Product Requirements Documents (PRDs) from feature requests
 - [ ] Detailed plan created.
 - [ ] PRD generated using the template.
 - [ ] Numbered functional requirements included.
-- [ ] File saved to `specs/tasks/prd-[feature-slug]/prd.md`.
+- [ ] File saved to `.specs/tasks/prd-[feature-slug]/prd.md`.
 - [ ] Final path provided.
 
 ## Error Handling

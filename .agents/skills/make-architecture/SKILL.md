@@ -1,6 +1,6 @@
 ---
 name: make-architecture
-description: Creates the global Architecture document (docs/architecture.md) through structured codebase analysis, technical interview, research, and drafting. Captures platform decisions, monorepo strategy, data model, AI integration, and client architecture. Use when the user asks to create or regenerate the architecture document, define technical direction, or bootstrap a new project's technical foundation. Do not use for feature-specific tech specs, task breakdowns, or direct code implementation.
+description: Creates the global Architecture document (docs/architecture.md) through structured codebase analysis, technical interview, research, and drafting. Captures platform decisions, monorepo strategy, data model, integration boundaries, and client/backend architecture. Use when the user asks to create or regenerate the architecture document, define technical direction, or bootstrap a new project's technical foundation. Do not use for feature-specific tech specs, task breakdowns, or direct code implementation.
 ---
 
 # Architecture Document Creation
@@ -19,9 +19,9 @@ description: Creates the global Architecture document (docs/architecture.md) thr
 1. Explore the repository thoroughly to discover the current technical reality:
    - Monorepo structure, build tools, and package manager
    - Apps and packages with their frameworks and dependencies
-   - Configuration files (tsconfig, eslint, vite, electron, expo, etc.)
+   - Configuration files (tsconfig, eslint, vite, next, mobile/web runtimes, infra configs, etc.)
    - Existing data models, schemas, and storage patterns
-   - AI integration code and dependencies
+   - Integration code and dependencies (auth, storage, realtime, AI, payments, external APIs, etc.)
    - Test setup and testing frameworks
    - CI/CD configuration if present
 2. Map the discovered structure against what `docs/project_overview.md` describes.
@@ -36,14 +36,14 @@ description: Creates the global Architecture document (docs/architecture.md) thr
 1. Ask the user focused clarification questions organized by topic. Skip questions whose answers are already clear from the codebase, project overview, or research.
 2. Cover all areas from the clarification checklist:
    - **Monorepo & Build**: Package manager, build tool, monorepo orchestrator, workspace structure.
-   - **Client Platforms**: Desktop framework and runtime, mobile framework, landing page approach.
-   - **Data Architecture**: Storage format, file model, folder structure, metadata schema, preferences format and location.
-   - **Sync Model**: User-managed vs application-managed sync, conflict handling stance.
-   - **Authentication**: Required or not? Account system or local-only?
-   - **AI Integration**: Provider(s), key management (BYOK?), orchestration framework, request flow (direct or proxied).
+   - **Client Platforms**: Primary user surfaces, runtimes, and any internal or supporting surfaces.
+   - **Data Architecture**: Core entities, schemas, persistence model, and storage boundaries.
+   - **Sync / State Propagation**: Realtime, offline, cache, queueing, replication, or eventual consistency stance where applicable.
+   - **Authentication & Identity**: Required or not? Account model, session model, tenant model, and identity scope.
+   - **Integrations**: Core providers, external APIs, internal adapters, and request/event flow.
    - **Backend**: Required or not? What is explicitly excluded?
-   - **App Model**: How do apps relate to shared data? Initial app list.
-   - **Cross-Platform Parity**: What is shared between desktop and mobile? What is platform-specific?
+   - **Module / Platform Model**: How modules, apps, features, or plugins relate to shared systems.
+   - **Cross-Platform / Cross-Surface Parity**: What is shared, what is surface-specific, and what can intentionally diverge.
    - **Testing**: Testing framework, strategy, and scope for the current phase.
    - **Non-Goals**: What does the architecture explicitly NOT include?
    - **Open Decisions**: What is intentionally left undecided?
@@ -81,7 +81,7 @@ description: Creates the global Architecture document (docs/architecture.md) thr
 2. Provide a brief summary of the architecture decisions captured.
 3. Call out any open decisions that need future resolution.
 4. Call out any tensions between the product overview and the architecture.
-5. If feature specs already exist under `specs/tasks/`, note that they should be reviewed for consistency with the new architecture document.
+5. If feature specs already exist under `.specs/tasks/`, note that they should be reviewed for consistency with the new architecture document.
 
 ## Core Principles
 - Clarify before planning; plan before drafting.

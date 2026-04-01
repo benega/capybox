@@ -72,18 +72,18 @@
 
 ## 8. Platform Model
 
-[Describe the product's layered architecture from a product perspective. Define each layer (e.g., AI layer, data layer, app layer, extensibility layer, distribution layer) and explain how they relate to each other.]
+[Describe the product's layered architecture from a product perspective. Define each layer (for example, user-facing surfaces, service layer, data layer, extensibility layer, distribution layer, or marketplace layer) and explain how they relate to each other.]
 
 ---
 
 ## 9. Data Ownership & Storage
 
-[Describe the product's stance on data ownership. Cover:
+[Describe the product's stance on critical product data. Cover:
 
-- Storage format philosophy
-- User control over their data
-- Portability and export guarantees
-- Independence from subscriptions for data access]
+- Who owns the data
+- What important data is stored
+- Portability or export guarantees if relevant
+- Whether access to core user data is independent from subscriptions]
 
 ---
 
@@ -99,7 +99,7 @@
 
 ## 11. Business Model
 
-[Describe potential revenue layers. Clarify any constraints on monetization (e.g., data access should not be gated by subscription).]
+[Describe potential revenue layers. Clarify any constraints on monetization that shape the product experience.]
 
 ---
 
@@ -111,7 +111,7 @@
 
 ### Architectural Direction
 
-[Summarize the key architectural principles that inform the tech stack: local-first, BYOK, no hosted backend, etc.]
+[Summarize the key architectural principles that inform the tech stack. Keep this high-level and project-agnostic, such as local-first, API-first, browser-first, platform-first, or offline-friendly where applicable.]
 
 ---
 
@@ -123,7 +123,7 @@
 
 ## 14. Privacy Approach
 
-[Describe how the product handles privacy: data storage location, encryption, AI provider security, BYOK, future local AI options.]
+[Describe how the product handles privacy: identity, product data, analytics, third-party data sharing, encryption, and any future account or tenant data.]
 
 ---
 

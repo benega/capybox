@@ -14,13 +14,13 @@
 
 ## 3. Core Principles
 
-[Define the foundational architectural principles. Each should have a short title and one-sentence explanation. Examples: Local-First, User-Owned Data, Single-User First, No Required Backend, AI as a Native Layer, Keep the MVP Simple.]
+[Define the foundational architectural principles. Each should have a short title and one-sentence explanation. Examples: Web-First Delivery, API-First Design, Event-Driven Processing, Local-First Storage, Keep the MVP Simple.]
 
 ---
 
 ## 4. Product Surface Area
 
-[List the main product surfaces (e.g., desktop app, mobile app, landing page) and their roles within the monorepo.]
+[List the main product surfaces (for example, web app, mobile app, desktop app, CLI, admin, API, worker, or browser extension) and their roles within the monorepo.]
 
 ---
 
@@ -40,19 +40,19 @@
 
 ---
 
-## 6. Client Platform Decisions
+## 6. Client and Runtime Decisions
 
-### 6.1 Desktop App
+### 6.1 Primary User Surfaces
 
-[Framework choices, runtime, tooling, and platform-specific behaviors.]
+[Describe the main user-facing surfaces, frameworks, runtimes, tooling, and any surface-specific constraints.]
 
-### 6.2 Mobile App
+### 6.2 Supporting or Internal Surfaces
 
-[Framework choices, runtime, and file access model. Note any open platform-specific decisions.]
+[Describe any supporting surfaces such as admin apps, dashboards, internal tools, CLIs, workers, or extensions.]
 
-### 6.3 Landing Page
+### 6.3 Runtime and Delivery Model
 
-[Framework, deployment model, and relationship to the product app architecture.]
+[Describe how the chosen runtimes and delivery model map to the surfaces above.]
 
 ---
 
@@ -60,35 +60,35 @@
 
 ### 7.1 Source of Truth
 
-[State where user data lives and what the product will NOT use for persistence.]
+[State where the system's source-of-truth data lives and what the product will NOT use for persistence.]
 
 ### 7.2 Storage Formats
 
-[List the file formats and their roles (e.g., Markdown for content, JSON for config).]
+[List the primary persistence structures and formats and their roles (for example, relational tables, object storage, document collections, event logs, config files, or cached client state).]
 
-### 7.3 Content File Model
+### 7.3 Core Domain Model
 
-[Describe the file model for the primary content type (e.g., one-note-per-file with YAML frontmatter). Include a frontmatter schema example and the standard fields.]
+[Describe the primary domain entities and runtime data model. Include an example schema or payload shape with the standard fields.]
 
 ### 7.4 Data Organization
 
-[Describe the top-level folder structure for user data (e.g., `/notes`, `/apps/*`).]
+[Describe how persistent entities are organized across backend and client layers.]
 
 ### 7.5 Preferences and Local Configuration
 
-[Describe how preferences are stored, the format, and the default path.]
+[Describe how local preferences, client configuration, cached state, or other local settings are stored.]
 
 ### 7.6 File Visibility
 
-[State the principle for file visibility and portability.]
+[State the principle for data visibility, portability, and ownership where applicable.]
 
 ---
 
-## 8. Sync Model
+## 8. Sync and State Propagation Model
 
 ### 8.1 Sync Approach
 
-[Describe how data sync works (user-managed vs application-managed).]
+[Describe how state and data propagate through the system: realtime subscriptions, queues, polling, offline sync, cache invalidation, or replication as applicable.]
 
 ### 8.2 Architectural Implication
 
@@ -100,7 +100,7 @@
 
 ### 9.1 Product Scope
 
-[State the current auth scope (e.g., single-user, no accounts).]
+[State the current authentication and identity scope.]
 
 ### 9.2 Current Decision
 
@@ -108,27 +108,27 @@
 
 ---
 
-## 10. AI Architecture
+## 10. Integration Architecture
 
-### 10.1 Provider Strategy
+### 10.1 Core Providers and Services
 
-[List AI providers and the key management model (e.g., BYOK).]
+[List the important external and internal services the system depends on and the role each one plays.]
 
-### 10.2 Key Storage
+### 10.2 Secrets and Credential Management
 
-[Describe where and how AI keys are stored.]
+[Describe where secrets, tokens, keys, and credentials live and how they are accessed.]
 
-### 10.3 Request Flow
+### 10.3 Request and Event Flow
 
-[Describe how AI requests travel (e.g., direct client-to-provider).]
+[Describe how requests, jobs, and events move through the system.]
 
-### 10.4 AI Integration Layer
+### 10.4 Internal Abstraction Layer
 
-[Name the orchestration framework and list the capabilities it should support.]
+[Describe any shared client, service, repository, SDK, or orchestration layer that isolates integrations from the rest of the codebase.]
 
 ### 10.5 Complexity Constraint
 
-[State what the MVP should avoid in terms of AI infrastructure complexity.]
+[State what the MVP should avoid in terms of integration or infrastructure complexity.]
 
 ---
 
@@ -152,27 +152,27 @@
 
 ### 12.1 Shared System
 
-[Describe the relationship between apps and the shared data layer.]
+[Describe the relationship between modules, apps, features, plugins, or bounded contexts and the shared systems they depend on.]
 
 ### 12.2 Initial App Structure
 
-[List the initial apps and their data organization.]
+[List the initial apps, modules, or bounded contexts and their data organization.]
 
 ### 12.3 Product Behavior
 
-[Describe how the chat and structured interfaces interact with apps.]
+[Describe how the major surfaces or modules interact at runtime.]
 
 ---
 
-## 13. Cross-Platform Parity Direction
+## 13. Cross-Platform or Cross-Surface Parity Direction
 
-[Describe the parity strategy between desktop and mobile: shared schemas, shared logic, platform-specific access layers.]
+[Describe the parity strategy across platforms or surfaces: shared schemas, shared logic, platform-specific access layers, and acceptable intentional differences.]
 
 ---
 
-## 14. Landing Page Architecture
+## 14. Distribution and Supporting Surface Architecture
 
-[Describe the landing page's role, its independence from the product architecture, and its deployment model.]
+[Describe how marketing sites, docs sites, internal consoles, partner portals, public APIs, or other supporting surfaces relate to the core product architecture.]
 
 ---
 
@@ -196,4 +196,4 @@
 
 ## 18. Summary
 
-[One-paragraph summary of the entire architecture: what the product is, how it is built, where data lives, how AI works, and what is deliberately excluded.]
+[One-paragraph summary of the entire architecture: what the product is, how it is built, where data lives, how the major systems interact, and what is deliberately excluded.]

@@ -9,8 +9,8 @@ description: Converts PRD and Tech Spec into a detailed, sequenced list of imple
 
 **Step 1: Validate Prerequisites**
 1. Confirm the feature slug has been provided.
-2. Verify the PRD exists at `specs/tasks/prd-[feature-slug]/prd.md`. If missing, halt.
-3. Verify the Tech Spec exists at `specs/tasks/prd-[feature-slug]/techspec.md`. If missing, halt.
+2. Verify the PRD exists at `.specs/tasks/prd-[feature-slug]/prd.md`. If missing, halt.
+3. Verify the Tech Spec exists at `.specs/tasks/prd-[feature-slug]/techspec.md`. If missing, halt.
 4. Verify the project context documents exist:
    - `docs/project_overview.md`
    - `docs/architecture.md`
@@ -29,21 +29,23 @@ description: Converts PRD and Tech Spec into a detailed, sequenced list of imple
 **Step 4: Generate High-Level Task List (Mandatory)**
 1. Present the high-level task list to the user for approval BEFORE generating any files.
 2. Organize tasks by logical deliverable.
-3. Order tasks logically: dependencies before dependents (e.g., backend before frontend, both before E2E tests).
+3. Order tasks logically: dependencies before dependents, and create any required test harness before the task that first depends on it.
 4. Each task MUST be a functional, incremental deliverable.
 5. Each task MUST have its own set of unit and integration tests.
-6. Limit to a maximum of 15 tasks (group as needed).
-7. Wait for user approval before proceeding to Step 5.
-8. Call out any task that exists primarily to reconcile or extend the current project architecture.
+6. If the Tech Spec marks committed E2E coverage as required for any flow, include explicit task ownership for creating and running those E2E files. Do not leave E2E creation implicit under QA.
+7. Limit to a maximum of 15 tasks (group as needed).
+8. Wait for user approval before proceeding to Step 5.
+9. Call out any task that exists primarily to reconcile or extend the current project architecture.
 
 **Step 5: Generate Task Files (Mandatory)**
 1. Read the tasks summary template at `assets/tasks-template.md`.
 2. Read the individual task template at `assets/task-template.md`.
-3. Create the summary file: `specs/tasks/prd-[feature-slug]/.specs/tasks.md`.
-4. Create individual task files: `specs/tasks/prd-[feature-slug]/[num]_task.md`.
+3. Create the summary file: `.specs/tasks/prd-[feature-slug]/tasks.md`.
+4. Create individual task files: `.specs/tasks/prd-[feature-slug]/[num]_task.md`.
 5. Use format X.0 for main tasks, X.Y for subtasks.
 6. Do NOT repeat implementation details already in the Tech Spec — reference it instead.
 7. Include `docs/project_overview.md` and `docs/architecture.md` as required reading when they materially affect the task.
+8. For any task with committed E2E ownership, state whether the task must author new Playwright files, extend existing ones, or is intentionally covered later by another named task.
 
 **Step 6: Report Results**
 1. Present all generated files to the user.
@@ -55,6 +57,7 @@ description: Converts PRD and Tech Spec into a detailed, sequenced list of imple
 - Make each main task independently completable.
 - Define clear scope and deliverables for each task.
 - Include tests as subtasks within each main task.
+- Treat committed E2E coverage as implementation work when the Tech Spec requires it; QA validates and extends coverage, but does not own creating all primary automated flows from scratch.
 - Do NOT implement anything — focus solely on task listing and detailing.
 
 ## Quality Checklist
@@ -64,7 +67,8 @@ description: Converts PRD and Tech Spec into a detailed, sequenced list of imple
 - [ ] High-level task list approved by user.
 - [ ] Task files generated using templates.
 - [ ] Each task has unit and integration test subtasks.
-- [ ] Files saved to `specs/tasks/prd-[feature-slug]/`.
+- [ ] Required E2E ownership from the Tech Spec is reflected explicitly in the tasks.
+- [ ] Files saved to `.specs/tasks/prd-[feature-slug]/`.
 - [ ] Results presented to user.
 
 ## Error Handling

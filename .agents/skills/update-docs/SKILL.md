@@ -9,7 +9,7 @@ description: Propagates accepted architectural and product decisions from comple
 
 **Step 1: Validate Prerequisites**
 1. Confirm the feature slug has been provided (or "all" to scan every feature).
-2. For a single feature, verify its spec directory exists at `specs/tasks/prd-[feature-slug]/`.
+2. For a single feature, verify its spec directory exists at `.specs/tasks/prd-[feature-slug]/`.
 3. Verify the global docs exist:
    - `docs/project_overview.md`
    - `docs/architecture.md`
@@ -22,8 +22,8 @@ description: Propagates accepted architectural and product decisions from comple
 
 **Step 3: Analyze Feature Specs (Mandatory)**
 1. For the target feature (or each feature if "all"):
-   a. Read the PRD at `specs/tasks/prd-[feature-slug]/prd.md`.
-   b. Read the Tech Spec at `specs/tasks/prd-[feature-slug]/techspec.md`.
+   a. Read the PRD at `.specs/tasks/prd-[feature-slug]/prd.md`.
+   b. Read the Tech Spec at `.specs/tasks/prd-[feature-slug]/techspec.md`.
    c. Identify sections that mention intentional changes, extensions, or tensions with the global docs.
    d. Identify decisions that were made during spec or implementation that are not yet reflected in the global docs.
 2. Also scan the current codebase for structural or technological realities that the docs do not yet capture.
