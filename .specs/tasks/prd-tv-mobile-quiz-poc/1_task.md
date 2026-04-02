@@ -28,11 +28,11 @@ This task converts the planned architecture from `docs/architecture.md` into an 
 
 ## Subtasks
 
-- [ ] 1.1 Create the workspace, app, and package directory structure defined by the feature tech spec
-- [ ] 1.2 Add shared workspace configuration, TypeScript settings, and package wiring for cross-package imports
-- [ ] 1.3 Scaffold both Next.js apps with required App Router root files and basic surface metadata
-- [ ] 1.4 Add environment configuration and developer setup notes for Supabase and the fixed room code
-- [ ] 1.5 Create and run baseline validation for workspace bootstrapping and app/package resolution
+- [x] 1.1 Create the workspace, app, and package directory structure defined by the feature tech spec
+- [x] 1.2 Add shared workspace configuration, TypeScript settings, and package wiring for cross-package imports
+- [x] 1.3 Scaffold both Next.js apps with required App Router root files and basic surface metadata
+- [x] 1.4 Add environment configuration and developer setup notes for Supabase and the fixed room code
+- [x] 1.5 Create and run baseline validation for workspace bootstrapping and app/package resolution
 
 ## Implementation Details
 
@@ -53,8 +53,8 @@ Do not define quiz logic, realtime message contracts, or surface-specific game b
 
 ## Task Tests
 
-- [ ] Unit tests
-- [ ] Integration tests
+- [x] Unit tests
+- [x] Integration tests
 - [ ] E2E tests (deferred to Task `7.0`; this task should not own primary user-flow Playwright coverage, but it must leave both surfaces bootable for later E2E work)
 
 <critical>ALWAYS CREATE AND RUN THE TASK TESTS BEFORE CONSIDERING THE TASK COMPLETE</critical>

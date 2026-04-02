@@ -9,7 +9,7 @@
 
 ## Tasks
 
-- [ ] 1.0 Scaffold the Capybox POC monorepo baseline for `apps/tv`, `apps/mobile`, and shared packages
+- [x] 1.0 Scaffold the Capybox POC monorepo baseline for `apps/tv`, `apps/mobile`, and shared packages
 - [ ] 2.0 Implement shared quiz contracts, fixed seed content, and the quiz game engine
 - [ ] 3.0 Build the shared Supabase realtime session adapter
 - [ ] 4.0 Implement the `tv` host surface and authoritative session-state flow

@@ -1,0 +1,29 @@
+:root {
+  color-scheme: dark;
+  --tv-bg: radial-gradient(circle at top, #2e5f56 0%, #10262a 45%, #061014 100%);
+  --tv-panel: rgba(8, 19, 24, 0.78);
+  --tv-panel-border: rgba(182, 232, 208, 0.2);
+  --tv-text: #f5fff5;
+  --tv-muted: #b8d6cb;
+  --tv-accent: #b9ff66;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--tv-bg);
+  color: var(--tv-text);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+a {
+  color: inherit;
+}

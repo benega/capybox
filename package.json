@@ -1,0 +1,35 @@
+{
+  "name": "capybox",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@11.3.0",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build --filter=@capybox/tv --filter=@capybox/mobile",
+    "dev": "turbo run dev --parallel --filter=@capybox/tv --filter=@capybox/mobile",
+    "dev:tv": "npm run dev --workspace=@capybox/tv",
+    "dev:mobile": "npm run dev --workspace=@capybox/mobile",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@types/node": "^24.5.2",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "eslint": "^9.36.0",
+    "globals": "^16.4.0",
+    "turbo": "^2.5.6",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.44.1",
+    "vitest": "^3.2.4"
+  }
+}

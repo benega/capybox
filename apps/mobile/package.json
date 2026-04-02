@@ -1,0 +1,20 @@
+{
+  "name": "@capybox/mobile",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev --turbopack",
+    "lint": "eslint .",
+    "typecheck": "tsc --project tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@capybox/game-engine": "*",
+    "@capybox/services": "*",
+    "@capybox/types": "*",
+    "next": "^16.1.6",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  }
+}
